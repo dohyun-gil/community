@@ -1,11 +1,3 @@
-# Akash SDL (validated against https://console.akash.network/sdl-schema.yaml)
-# Stack Definition Language v2 — shareable audit (app :8080, ingress :80, no S3).
-# Lives in this repo at audit/standalone-audit.sdl.yaml
-#
-# Tune: image tag, AUDIT_PROVIDER_ID, AUDIT_GPU_ENABLED (off by default; use auto or 1 for GPU), gpu model, resources, pricing, storage classes.
-# Mount paths for volumes are only under services.*.params.storage (not on profile storage items).
-
----
 version: "2.0"
 
 services:
@@ -15,7 +7,7 @@ services:
       - AUDIT_STANDALONE_UI=1
       - AUDIT_HTTP_BIND=0.0.0.0
       - AUDIT_HTTP_PORT=8080
-      - AUDIT_PROVIDER_ID=akash1REPLACE_WITH_PROVIDER_OWNER
+      - AUDIT_PROVIDER_ID=akash1cfsc8qjhav0g3vv3l8jtm7mly7a0vxtrugrv7x
       - AUDIT_TIMEOUT_SECONDS=3600
       - AUDIT_PV_MOUNT_PATH=/data
       - AUDIT_RAM_REQUIRED=true
@@ -62,7 +54,7 @@ profiles:
   placement:
     akash:
       attributes:
-        host: akash
+        host: baremetal
       pricing:
         provider-audit:
           denom: uact
